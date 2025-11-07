@@ -19,18 +19,18 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Stablo — Minimal Next.js Blog Template",
-    template: "%s | Stablo",
+    default: "x402 Ecosystem — Programmable Payment Solutions",
+    template: "%s | x402",
   },
   description:
-    "Stablo is a polished blog starter built with Next.js, Tailwind CSS, and Markdown content.",
+    "Explore the x402 ecosystem: x402X for programmable settlements, x402AI for on-chain AI agents, and USDC Faucet for testnet development.",
   openGraph: {
     type: "website",
-    title: "Stablo — Minimal Next.js Blog Template",
+    title: "x402 Ecosystem — Programmable Payment Solutions",
     description:
-      "A faithful Next.js recreation of the Stablo Astro theme with Markdown-powered posts.",
+      "Building the future of programmable payments with smart contracts and AI agents on blockchain networks.",
     url: siteUrl,
-    siteName: "Stablo",
+    siteName: "x402 Ecosystem",
   },
   twitter: {
     card: "summary_large_image",

@@ -8,22 +8,22 @@ export const metadata = {
 };
 
 const contactDetails = [
+  // {
+  //   label: "1734 Sanfransico, CA 93063",
+  //   icon: (
+  //     <svg
+  //       className="h-4 w-4 text-gray-400"
+  //       xmlns="http://www.w3.org/2000/svg"
+  //       viewBox="0 0 24 24"
+  //       fill="currentColor"
+  //     >
+  //       <path d="M12 2a7 7 0 0 0-7 7c0 4.177 4.508 9.235 6.13 10.9a1.2 1.2 0 0 0 1.74 0C14.492 18.235 19 13.177 19 9a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z" />
+  //     </svg>
+  //   ),
+  // },
   {
-    label: "1734 Sanfransico, CA 93063",
-    icon: (
-      <svg
-        className="h-4 w-4 text-gray-400"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-      >
-        <path d="M12 2a7 7 0 0 0-7 7c0 4.177 4.508 9.235 6.13 10.9a1.2 1.2 0 0 0 1.74 0C14.492 18.235 19 13.177 19 9a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z" />
-      </svg>
-    ),
-  },
-  {
-    label: "hello@stablotemplate.com",
-    href: "mailto:hello@stablotemplate.com",
+    label: "hello@nuwa.dev",
+    href: "mailto:hello@nuwa.dev",
     icon: (
       <svg
         className="h-4 w-4 text-gray-400"
@@ -35,20 +35,20 @@ const contactDetails = [
       </svg>
     ),
   },
-  {
-    label: "+1 (987) 4587 899",
-    href: "tel:+19874587899",
-    icon: (
-      <svg
-        className="h-4 w-4 text-gray-400"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-      >
-        <path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24 11.72 11.72 0 0 0 3.68.59 1 1 0 0 1 1 1v3.6a1 1 0 0 1-1 1A17.62 17.62 0 0 1 2 6a1 1 0 0 1 1-1h3.61a1 1 0 0 1 1 1 11.72 11.72 0 0 0 .59 3.68 1 1 0 0 1-.24 1.01l-2.34 2.1Z" />
-      </svg>
-    ),
-  },
+  // {
+  //   label: "+1 (987) 4587 899",
+  //   href: "tel:+19874587899",
+  //   icon: (
+  //     <svg
+  //       className="h-4 w-4 text-gray-400"
+  //       xmlns="http://www.w3.org/2000/svg"
+  //       viewBox="0 0 24 24"
+  //       fill="currentColor"
+  //     >
+  //       <path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24 11.72 11.72 0 0 0 3.68.59 1 1 0 0 1 1 1v3.6a1 1 0 0 1-1 1A17.62 17.62 0 0 1 2 6a1 1 0 0 1 1-1h3.61a1 1 0 0 1 1 1 11.72 11.72 0 0 0 .59 3.68 1 1 0 0 1-.24 1.01l-2.34 2.1Z" />
+  //     </svg>
+  //   ),
+  // },
 ];
 
 export default function ContactPage() {

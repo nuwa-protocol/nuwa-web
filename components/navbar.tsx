@@ -25,15 +25,15 @@ const RIGHT_MENU: MenuItem[] = [
   { label: "Archive", href: "/archive" },
   {
     label: "Github",
-    href: "https://github.com/web3templates/stablo-astro",
+    href: "https://github.com/nuwa-protocol",
     external: true,
     badge: "new",
   },
-  {
-    label: "Download",
-    href: "https://web3templates.com/templates/stablo-minimal-blog-website-template",
-    external: true,
-  },
+  // {
+  //   label: "Download",
+  //   href: "https://web3templates.com/templates/stablo-minimal-blog-website-template",
+  //   external: true,
+  // },
 ];
 
 const MOBILE_MENU: MenuItem[] = [...LEFT_MENU, ...RIGHT_MENU];
