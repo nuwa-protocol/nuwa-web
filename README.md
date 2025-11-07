@@ -93,14 +93,41 @@ Changes are picked up automatically when you refresh the page in development. Du
 
 ## Creating A New Post
 
-1. Duplicate an existing folder inside `content/posts`.
-2. Rename the folder to the slug you want for the URL (for example `my-new-story`).
-3. Open the new `index.md` and update every frontmatter field.
-4. Replace the body content with your new article.
-5. Add a hero image file to the folder and point `image` at it.
-6. Run `npm run sync:assets`.
+### Option 1: Use the Interactive Script (Recommended)
+
+Run the interactive post creator:
+
+```bash
+npm run new:post
+```
+
+This will guide you through creating a new post with all the required frontmatter fields. It will:
+- Generate a URL-friendly slug from your title
+- Create the post folder structure
+- Set up the template with your metadata
+- Add a placeholder cover image
+
+After running the script, you can:
+1. Edit `content/posts/<your-slug>/index.md` to write your content
+2. Replace `cover-image.webp` with your actual hero image
+3. Set `draft: false` when ready to publish
+4. Run `npm run sync:assets` to copy images
+
+### Option 2: Manual Creation
+
+1. Copy the template folder:
+   ```bash
+   cp -r content/posts/_template content/posts/my-new-story
+   ```
+2. Rename the folder to your desired URL slug (e.g. `my-new-story`)
+3. Open the new `index.md` and update every frontmatter field
+4. Replace the body content with your new article
+5. Add a hero image file to the folder and point `image` at it
+6. Run `npm run sync:assets`
 
 The new post will automatically appear on the home page, the archive, and at `/<your-slug>`.
+
+📚 **For detailed guidance**, see `content/posts/README.md`
 
 ---
 
@@ -120,6 +147,7 @@ The new post will automatically appear on the home page, the archive, and at `/<
 - `npm run start` – run the built site locally.
 - `npm run lint` – run ESLint checks.
 - `npm run sync:assets` – copy Markdown co-located images into `public/posts`.
+- `npm run new:post` – interactive script to create a new blog post.
 
 ---
 
