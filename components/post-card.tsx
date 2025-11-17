@@ -76,20 +76,7 @@ export default function PostCard({
       ) : null}
 
       <div className="mt-3 flex items-center space-x-3 text-gray-500 dark:text-gray-400">
-        {author ? (
-          <div className="flex items-center gap-3">
-            <div className="relative h-5 w-5 flex-shrink-0">
-              <Image
-                src={author.avatar}
-                alt={author.name}
-                fill
-                sizes="32px"
-                className="rounded-full object-cover"
-              />
-            </div>
-            <span className="text-sm">{author.name}</span>
-          </div>
-        ) : null}
+        {author ? <span className="text-sm font-medium">{author.name}</span> : null}
         <span className="text-xs text-gray-300 dark:text-gray-600">
           &bull;
         </span>

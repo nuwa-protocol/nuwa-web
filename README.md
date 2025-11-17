@@ -125,7 +125,7 @@ After running the script, you can:
 5. Add a hero image file to the folder and point `image` at it
 6. Run `npm run sync:assets`
 
-The new post will automatically appear on the home page, the archive, and at `/<your-slug>`.
+The new post will automatically appear on the home page, the blog, and at `/<your-slug>`.
 
 📚 **For detailed guidance**, see `content/posts/README.md`
 
@@ -133,7 +133,7 @@ The new post will automatically appear on the home page, the archive, and at `/<
 
 ## Understanding SEO Output
 
-- The home, archive, about, and contact pages define their own titles and descriptions.
+- The home, blog, and about pages define their own titles and descriptions.
 - Each post page uses the frontmatter (`title`, `excerpt`, `publishDate`, `tags`, `image`) to populate HTML `<title>`, meta description, Open Graph, and Twitter Card tags.
 - If you supply `tags`, they are also included as Open Graph article tags.
 - The optional environment variable `NEXT_PUBLIC_SITE_URL` can be set in `.env` to ensure canonical URLs and social sharing images are absolute.

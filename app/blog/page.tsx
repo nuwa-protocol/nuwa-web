@@ -4,18 +4,18 @@ import PostCard from "@/components/post-card";
 import { getAllPosts } from "@/lib/content";
 
 export const metadata = {
-  title: "Archive",
-  description: "See all posts we have ever written.",
+  title: "Blog",
+  description: "Dive into every story, update, and tutorial we have published.",
 };
 
-export default function ArchivePage() {
+export default function BlogPage() {
   const posts = getAllPosts();
 
   return (
     <Container>
       <PageTitle
-        title="Archive"
-        description="See all posts we have ever written."
+        title="Blog"
+        description="Dive into every story, update, and tutorial we have published."
       />
 
       <div className="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3">

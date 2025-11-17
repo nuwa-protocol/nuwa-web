@@ -18,22 +18,15 @@ interface MenuItem {
 const LEFT_MENU: MenuItem[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
 ];
 
 const RIGHT_MENU: MenuItem[] = [
-  { label: "Archive", href: "/archive" },
+  { label: "Blog", href: "/blog" },
   {
     label: "Github",
     href: "https://github.com/nuwa-protocol",
     external: true,
-    badge: "new",
   },
-  // {
-  //   label: "Download",
-  //   href: "https://web3templates.com/templates/stablo-minimal-blog-website-template",
-  //   external: true,
-  // },
 ];
 
 const MOBILE_MENU: MenuItem[] = [...LEFT_MENU, ...RIGHT_MENU];
@@ -63,7 +56,7 @@ export default function Navbar() {
                 aria-label="Home dark"
               >
                 <Image
-                  src="/logo-dark.svg"
+                  src="/logo/dark.svg"
                   alt="Logo dark"
                   width={112}
                   height={32}
