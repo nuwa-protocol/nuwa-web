@@ -6,13 +6,13 @@ export const metadata = {
   title: "About Nuwa AI",
   description:
     "Open Economy Layer for AI. At Nuwa AI, we are building the foundational payment systems for AI agents.",
-  alternates: { canonical: "/about" },
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    title: "About",
+    title: "About Nuwa AI",
     description:
       "Open Economy Layer for AI. At Nuwa AI, we are building the foundational payment systems for AI agents.",
-    url: "/about",
+    url: "/",
   },
 };
 
