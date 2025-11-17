@@ -9,7 +9,6 @@ import {
   FaYoutube,
 } from "react-icons/fa6";
 import Logo from "@/components/logo";
-import ThemeSwitch from "@/components/theme-switch";
 
 // Define a constant array for social links
 const SOCIAL_LINKS = [
@@ -89,12 +88,6 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
-              <span className="font-medium text-gray-700 dark:text-gray-200">
-                Theme
-              </span>
-              <ThemeSwitch />
-            </div>
           </div>
         </div>
       </div>

@@ -1,107 +1,161 @@
 import Container from "@/components/container";
-import PostCard from "@/components/post-card";
-import { getAllPosts } from "@/lib/content";
-import Link from "next/link";
+import PageTitle from "@/components/page-title";
+import Image from "next/image";
 
 export const metadata = {
-  title: "Home",
+  title: "About Nuwa AI",
   description:
-    "Welcome to Stablo, a minimal blog built with Next.js and Markdown.",
+    "Open Economy Layer for AI. At Nuwa AI, we are building the foundational payment systems for AI agents.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    type: "website",
+    title: "About",
+    description:
+      "Open Economy Layer for AI. At Nuwa AI, we are building the foundational payment systems for AI agents.",
+    url: "/about",
+  },
 };
 
-export default function HomePage() {
-  const posts = getAllPosts();
-  const latestPosts = posts.slice(0, 3);
-  const highlights = [
-    "Research-backed case studies on product and systems design.",
-    "Practical notes on scaling engineering teams with clarity.",
-    "Open journaling about wins, missteps, and everything between.",
-  ];
+// Project cards: linkable items with optional logo assets and graceful fallback
+const PROJECTS = [
+  {
+    title: "Nuwa AI",
+    href: "https://nuwa.dev",
+    description:
+      "Open AI capability community and marketplace. LLM and MCP payment enabled with Payment Channel.",
+    logoLight: "/logo/light.svg",
+    logoDark: "/logo/dark.svg",
+    initials: "NA",
+  },
+  {
+    title: "x402ai.app",
+    href: "https://x402ai.app",
+    description:
+      "Open AI capability community and marketplace. Payments enabled by x402 protocol.",
+    // Use the Nuwa AI logo for this project as requested
+    logoLight: "/logo/light.svg",
+    logoDark: "/logo/dark.svg",
+    initials: "x402ai",
+  },
+  {
+    title: "x402x.dev",
+    href: "https://x402x.dev",
+    description:
+      "x402x (short for x402-exec) extends the original x402 payments protocol, and enables Gas-Free and Approval-Free smart contract interactions and DApps.",
+    // Use the same logo for light/dark modes
+    logoLight: "/projects/x402x.svg",
+    logoDark: "/projects/x402x.svg",
+    initials: "x402x",
+  },
+];
 
+export default function AboutPage() {
   return (
     <Container>
-      <section className="grid gap-10 py-20 lg:grid-cols-2 lg:items-center lg:gap-16">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-blue-500">
-            Fresh perspectives for curious minds
-          </p>
-          <h1 className="mt-4 text-4xl font-semibold leading-tight text-gray-900 dark:text-white md:text-5xl">
-            Build calm, thoughtful products and share the journey.
-          </h1>
-          <p className="mt-6 text-lg text-gray-600 dark:text-gray-300">
-            Nuwa chronicles experiments in design systems, developer tools, and
-            the teams behind them. Learn with us as we ship, reflect, and refine
-            in public.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Link
-              href="/blog"
-              className="rounded-full bg-gray-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-gray-700 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200"
-            >
-              Read the blog
-            </Link>
-            <Link
-              href="/about"
-              className="rounded-full border border-gray-200 px-6 py-3 text-sm font-semibold text-gray-700 transition hover:border-gray-900 hover:text-gray-900 dark:border-gray-700 dark:text-gray-200 dark:hover:border-white dark:hover:text-white"
-            >
-              Meet the team
-            </Link>
-          </div>
-        </div>
-
-        <div className="rounded-3xl border border-gray-100 bg-gray-50 p-8 shadow-sm dark:border-gray-800 dark:bg-gray-900/40">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
-            What to expect
-          </p>
-          <ul className="mt-6 space-y-4 text-base text-gray-700 dark:text-gray-300">
-            {highlights.map((item) => (
-              <li key={item} className="flex items-start gap-3">
-                <span
-                  className="mt-2 inline-block h-2 w-2 rounded-full bg-blue-500"
-                  aria-hidden="true"
-                />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <PageTitle
+        title="About Nuwa AI"
+        description="Open Economy Layer for AI"
+      />
+      <section className="mx-auto mt-12 max-w-3xl space-y-6 text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+        <p>
+          The future of AI isn&apos;t just about adding more agent apps —
+          <span className="font-bold">
+            it&apos;s about enabling agents to collaborate seamlessly on your
+            behalf.
+          </span>{" "}
+          Achieving this vision depends on two core infrastructures:{" "}
+          <span className="font-bold">Identity and Payment</span>. Nuwa AI
+          delivers the open economic layer that brings this to life.
+        </p>
+        <p>
+          <span className="font-bold">
+            At Nuwa AI we are building the foundational payment systems for AI
+            agents.{" "}
+          </span>
+          Below is the active stack of Nuwa AI projects. They evolve frequently,
+          so expect fast iteration, shipped-in-public updates, and pragmatic
+          focus on what unblocks contributors right now.
+        </p>
       </section>
 
-      <section className="py-12">
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-blue-500">
-              Latest from the blog
-            </p>
-            <h2 className="text-3xl font-semibold text-gray-900 dark:text-white">
-              Recent writing
-            </h2>
-          </div>
-          <Link
-            href="/blog"
-            className="text-sm font-semibold text-gray-900 underline-offset-4 hover:underline dark:text-gray-50"
+      <section className="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-3">
+        {PROJECTS.map((p) => (
+          <a
+            key={p.title}
+            href={p.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-gray-900 dark:border-gray-800 dark:bg-gray-900"
           >
-            View all posts
-          </Link>
-        </div>
-
-        {latestPosts.length ? (
-          <div className="mt-8 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-            {latestPosts.map((post, index) => (
-              <PostCard
-                key={post.slug}
-                post={post}
-                aspect={index === 0 ? "landscape" : "square"}
-                preloadImage={index === 0}
+            {/* Row 1: Logo (bigger, full logo if available) */}
+            <div className="flex h-12 items-center justify-start">
+              <ProjectLogo
+                title={p.title}
+                light={p.logoLight}
+                dark={p.logoDark}
+                initials={p.initials ?? p.title[0]}
               />
-            ))}
-          </div>
-        ) : (
-          <p className="mt-8 text-gray-600 dark:text-gray-300">
-            No posts just yet. Check back soon!
-          </p>
-        )}
+            </div>
+
+            {/* Row 2: Project name */}
+            <h3 className="mt-4 text-xl font-semibold text-gray-900 transition-colors group-hover:text-gray-700 dark:text-white dark:group-hover:text-gray-100">
+              {p.title}
+            </h3>
+
+            {/* Row 3: Description */}
+            <p className="mt-2 text-base text-gray-600 dark:text-gray-300">
+              {p.description}
+            </p>
+          </a>
+        ))}
       </section>
     </Container>
+  );
+}
+
+// Lightweight logo renderer: prefers provided assets, falls back to initials badge
+function ProjectLogo({
+  title,
+  light,
+  dark,
+  initials,
+}: {
+  title: string;
+  light?: string;
+  dark?: string;
+  initials: string;
+}) {
+  if (light || dark) {
+    return (
+      <>
+        {light ? (
+          <Image
+            src={light}
+            alt={`${title} logo`}
+            width={160}
+            height={48}
+            className={
+              dark ? "block h-12 w-auto dark:hidden" : "block h-12 w-auto"
+            }
+          />
+        ) : null}
+        {dark ? (
+          <Image
+            src={dark}
+            alt={`${title} logo dark`}
+            width={160}
+            height={48}
+            className="hidden h-12 w-auto dark:block"
+          />
+        ) : null}
+      </>
+    );
+  }
+
+  // Fallback: simple rounded badge with initials
+  return (
+    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-blue-500 text-sm font-bold text-white shadow-sm">
+      {initials}
+    </div>
   );
 }

@@ -16,17 +16,15 @@ interface MenuItem {
 }
 
 const LEFT_MENU: MenuItem[] = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+  { label: "About", href: "/" },
+  // External docs link appears after About in the left menu
+  { label: "Docs", href: "https://docs.nuwa.dev/", external: true },
 ];
 
 const RIGHT_MENU: MenuItem[] = [
   { label: "Blog", href: "/blog" },
-  {
-    label: "Github",
-    href: "https://github.com/nuwa-protocol",
-    external: true,
-  },
+  // External GitHub link at the end of the right menu
+  { label: "GitHub", href: "https://github.com/nuwa-protocol", external: true },
 ];
 
 const MOBILE_MENU: MenuItem[] = [...LEFT_MENU, ...RIGHT_MENU];

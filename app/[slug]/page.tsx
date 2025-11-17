@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import AuthorCard from "@/components/author-card";
 import Container from "@/components/container";
 import Label from "@/components/ui/label";
 import { getPostBySlug, getPostSlugs } from "@/lib/content";
@@ -73,8 +72,40 @@ export default async function PostPage({
     (item) => item.slug === post.data.category
   );
 
+  // Build JSON-LD for richer search results
+  const canonicalUrl = new URL(params.slug, siteUrl).toString();
+  const imageUrl = post.coverImage
+    ? new URL(post.coverImage, siteUrl).toString()
+    : undefined;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.data.title,
+    description: post.data.excerpt,
+    image: imageUrl ? [imageUrl] : undefined,
+    datePublished: post.data.publishDate,
+    dateModified: post.data.publishDate,
+    author: author
+      ? { "@type": "Person", name: author.name }
+      : { "@type": "Person", name: post.data.author },
+    mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl },
+    publisher: {
+      "@type": "Organization",
+      name: "Nuwa AI Team",
+      logo: {
+        "@type": "ImageObject",
+        url: new URL("/logo/light.png", siteUrl).toString(),
+      },
+    },
+  } as const;
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        // JSON-LD must be raw JSON in a script tag
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Container>
         <div className="mx-auto max-w-screen-md text-center">
           {category ? (
@@ -84,35 +115,21 @@ export default async function PostPage({
             {post.data.title}
           </h1>
 
-          <div className="mt-3 flex justify-center space-x-3 text-gray-500">
+          <div className="mt-3 flex justify-center text-gray-500">
             {author ? (
-              <div className="flex items-center gap-3">
-                <div className="relative h-10 w-10 flex-shrink-0">
-                  <Image
-                    src={author.avatar}
-                    alt={author.name}
-                    fill
-                    sizes="40px"
-                    className="h-10 w-10 rounded-full object-cover"
-                    priority
-                  />
-                </div>
-                <div className="text-left">
-                  <p className="text-gray-800 dark:text-gray-400">
-                    {author.name}
-                  </p>
-                  <div className="flex items-center space-x-2 text-sm">
-                    <time
-                      className="text-gray-500 dark:text-gray-400"
-                      dateTime={post.data.publishDate}
-                    >
-                      {post.formattedDate}
-                    </time>
-                    <span>
-                      · {post.readingTimeMinutes}
-                      {post.readingTimeMinutes === 1 ? " min" : " mins"} read
-                    </span>
-                  </div>
+              <div className=" flex flex-col gap-3">
+                <p className="text-gray-500 dark:text-gray-400">{author.name}</p>
+                <div className="flex items-center justify-center space-x-2 text-sm">
+                  <time
+                    className="text-gray-500 dark:text-gray-400"
+                    dateTime={post.data.publishDate}
+                  >
+                    {post.formattedDate}
+                  </time>
+                  <span>
+                    · {post.readingTimeMinutes}
+                    {post.readingTimeMinutes === 1 ? " min" : " mins"} read
+                  </span>
                 </div>
               </div>
             ) : null}
@@ -162,7 +179,7 @@ export default async function PostPage({
             </Link>
           </div>
 
-          {author ? <AuthorCard author={author} /> : null}
+          {/* Author card removed per request */}
         </article>
       </Container>
     </>

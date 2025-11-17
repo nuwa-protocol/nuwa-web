@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://astroship.web3templates.com/sitemap-index.xml
+# If your platform does not use Next's dynamic robots (app/robots.ts),
+# update the URL below to your production domain.
+Sitemap: https://example.com/sitemap.xml

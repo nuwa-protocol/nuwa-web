@@ -6,6 +6,15 @@ import { getAllPosts } from "@/lib/content";
 export const metadata = {
   title: "Blog",
   description: "Dive into every story, update, and tutorial we have published.",
+  // Help search engines pick the correct page URL
+  alternates: { canonical: "/blog" },
+  openGraph: {
+    type: "website",
+    title: "Blog",
+    description:
+      "Dive into every story, update, and tutorial we have published.",
+    url: "/blog",
+  },
 };
 
 export default function BlogPage() {

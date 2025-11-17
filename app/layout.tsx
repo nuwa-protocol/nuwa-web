@@ -6,6 +6,7 @@ import "@/app/globals.css";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import ThemeProvider from "@/components/theme-provider";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -13,28 +14,32 @@ const inter = Inter({
   display: "swap",
 });
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nuwa.dev";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "x402 Ecosystem — Programmable Payment Solutions",
-    template: "%s | x402",
+    default: "Nuwa AI — Open Economy Layer for AI",
+    template: "%s | Nuwa AI",
   },
   description:
-    "Explore the x402 ecosystem: x402X for programmable settlements, x402AI for on-chain AI agents, and USDC Faucet for testnet development.",
+    "At Nuwa AI, we are building the Open Economy Layer for AI with the foundational payment systems for AI agents.",
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    title: "x402 Ecosystem — Programmable Payment Solutions",
+    title: "Nuwa AI — Open Economy Layer for AI",
     description:
-      "Building the future of programmable payments with smart contracts and AI agents on blockchain networks.",
+      "At Nuwa AI, we are building the Open Economy Layer for AI with the foundational payment systems for AI agents.",
     url: siteUrl,
-    siteName: "x402 Ecosystem",
+    siteName: "Nuwa AI",
   },
   twitter: {
     card: "summary_large_image",
     creator: "@nuwa",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -50,6 +55,8 @@ export default function RootLayout({
           <Navbar />
           <main>{children}</main>
           <Footer />
+          {/* Vercel Web Analytics */}
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
