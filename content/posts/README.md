@@ -87,46 +87,6 @@ When ready to publish:
 
 ---
 
-## 📚 Reference
-
-### Available Categories
-
-Must use one of these category slugs:
-
-| Slug | Title | Color | Description |
-|------|-------|-------|-------------|
-| `tech` | Tech | Blue | Technical explorations and engineering learnings |
-| `product` | Product | Green | Product decisions, releases, and feature deep-dives |
-| `insights` | Insights | Orange | Perspectives, analyses, and industry trends |
-| `branding` | Branding | Purple | Brand storytelling and creative thinking |
-| `milestone` | Milestone | Pink | Key company milestones and launches |
-| `technology` | Technology | Blue | Latest tech trends and innovations |
-| `lifestyle` | Lifestyle | Orange | Fashion, food, home design trends |
-| `personal` | Personal | Green | Self-improvement and personal development |
-| `travel` | Travel | Pink | Travel tips and destination guides |
-| `design` | Design | Purple | Graphic, product, and interior design |
-
-> **Note:** To add a new category, edit `/lib/data/categories.ts`
-
-### Available Authors
-
-Must use one of these author slugs:
-
-| Slug | Name | Description |
-|------|------|-------------|
-| `arpit` | Arpit | Product stories and walkthroughs |
-| `haichao` | Haichao | Team milestones and building NUWA |
-| `sarah` | Sarah | Customer insights and community learnings |
-| `summer` | Summer | Branding narratives and creative processes |
-| `jolestar-wang` | Jolestar Wang | Engineering deep dives and technical content |
-| `mario-sanchez` | Mario Sanchez | Frontend engineering specialist |
-| `joshua-wood` | Joshua Wood | Cloud infrastructure and ML operations |
-| `erika-oliver` | Erika Oliver | Entrepreneurship and business |
-
-> **Note:** To add a new author, edit `/lib/data/authors.ts` and add their avatar to `/public/authors/`
-
----
-
 ## 🎨 Content Best Practices
 
 ### Writing Tips
