@@ -20,7 +20,7 @@ export const metadata = {
 const PROJECTS = [
   {
     title: "Nuwa AI",
-    href: "https://nuwa.dev",
+    href: "https://test-app.nuwa.dev/",
     description:
       "Open AI capability community and marketplace. LLM and MCP payment enabled with Payment Channel.",
     logoLight: "/logo/light.svg",
