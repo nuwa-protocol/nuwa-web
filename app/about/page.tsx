@@ -1,54 +1,67 @@
-import Image from "next/image";
-import Link from "next/link";
-
 import Container from "@/components/container";
 import PageTitle from "@/components/page-title";
-import { authors } from "@/lib/data/authors";
 
 export const metadata = {
   title: "About",
-  description: "We are a small passionate team.",
+  description: "Nuwa builds open tooling for resilient creator and dev ecosystems.",
 };
+
+const PROJECTS = [
+  {
+    title: "Nuwa Protocol",
+    description:
+      "A programmable coordination layer that lets builders compose governance, treasury, and membership primitives without touching Solidity.",
+  },
+  {
+    title: "Creator OS",
+    description:
+      "A lightweight publishing stack for independent storytellers that stitches together token-gated drops, mailing lists, and cross-platform analytics.",
+  },
+  {
+    title: "Guild Console",
+    description:
+      "Operational dashboards that keep distributed teams aligned with automated reporting, contributor insights, and alerting hooks.",
+  },
+];
 
 export default function AboutPage() {
   return (
     <Container>
-      <PageTitle title="About" description="We are a small passionate team." />
+      <PageTitle
+        title="About"
+        description="Nuwa builds open tooling for resilient creator and dev ecosystems."
+      />
 
-      <div className="mx-auto mt-12 grid max-w-4xl gap-10 md:grid-cols-3">
-        {authors.slice(0, 3).map((author) => (
-          <div key={author.slug} className="group text-center">
-            <div className="aspect-square w-full overflow-hidden rounded">
-              <Image
-                src={author.avatar}
-                alt={author.name}
-                width={580}
-                height={580}
-                className="h-full w-full rounded object-cover transition group-hover:-translate-y-1 group-hover:shadow-xl"
-              />
-            </div>
-            <h3 className="mt-4 text-sm text-gray-500 dark:text-gray-300">
-              {author.name}
-            </h3>
-          </div>
-        ))}
-      </div>
-
-      <div className="mx-auto mt-14 max-w-xl text-center">
-        <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-400">
-          We're a multi-cultural team from around the world! We come from
-          diverse backgrounds, bringing different personalities, experiences and
-          skills to the job. This is what makes our team so special.
+      <section className="mx-auto mt-12 max-w-3xl space-y-6 text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+        <p>
+          We experiment with modular protocols, human-friendly interfaces, and
+          documentation patterns that let small teams ship ambitious products
+          without heavyweight infrastructure. Each initiative starts as a
+          research memo, becomes a working prototype, and graduates to a public
+          release once the playbook feels repeatable.
         </p>
-        <div className="mt-8">
-          <Link
-            href="/contact"
-            className="inline-flex rounded-md bg-blue-600 px-5 py-2 text-sm font-medium text-white transition hover:bg-blue-700"
+        <p>
+          Below is the active stack of Nuwa projects. They evolve frequently, so
+          expect fast iteration, shipped-in-public updates, and pragmatic focus
+          on what unblocks contributors right now.
+        </p>
+      </section>
+
+      <section className="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-3">
+        {PROJECTS.map((project) => (
+          <article
+            key={project.title}
+            className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-gray-900 dark:border-gray-800 dark:bg-gray-900"
           >
-            Get in touch
-          </Link>
-        </div>
-      </div>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+              {project.title}
+            </h3>
+            <p className="mt-3 text-base text-gray-600 dark:text-gray-300">
+              {project.description}
+            </p>
+          </article>
+        ))}
+      </section>
     </Container>
   );
 }
