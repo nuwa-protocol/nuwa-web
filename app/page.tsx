@@ -76,7 +76,7 @@ function loadProjects(): Project[] {
     .filter((f) => f.isDirectory());
 
   return entries
-    .map((dir) => {
+    .map((dir): Project | null => {
       try {
         const metadataPath = path.join(baseDir, dir.name, "metadata.json");
         if (!fs.existsSync(metadataPath)) return null;
@@ -94,7 +94,7 @@ function loadProjects(): Project[] {
         if (tag !== "infra" && tag !== "app") return null;
         const order = typeof meta.order === "number" ? meta.order : undefined;
 
-        return {
+        const project: Project = {
           title: meta.name ?? dir.name,
           href: meta.url,
           github: meta.github,
@@ -104,13 +104,15 @@ function loadProjects(): Project[] {
           illustration: getAssetPath(dir.name, "illustration"),
           order,
         };
+
+        return project;
       } catch (e) {
         console.error("Failed to read project metadata", e);
         return null;
       }
     })
-    .filter(Boolean)
-    .reduce((acc, project) => {
+    .filter((project): project is Project => project !== null)
+    .reduce<Project[]>((acc, project) => {
       const key =
         project.github ?? project.href ?? project.title.toLowerCase().trim();
       const existing = acc.find((p) => {
@@ -119,19 +121,19 @@ function loadProjects(): Project[] {
       });
 
       if (!existing) {
-        acc.push(project as Project);
+        acc.push(project);
         return acc;
       }
 
-      const currentOrder = (project as Project).order ?? 9999;
+      const currentOrder = project.order ?? 9999;
       const existingOrder = existing.order ?? 9999;
 
       if (currentOrder < existingOrder) {
-        acc[acc.indexOf(existing)] = project as Project;
+        acc[acc.indexOf(existing)] = project;
       }
 
       return acc;
-    }, [] as Project[]);
+    }, []);
 }
 
 export default function AboutPage() {
