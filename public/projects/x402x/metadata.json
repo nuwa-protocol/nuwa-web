@@ -1,0 +1,8 @@
+{
+	"name": "Facilitator (x402x)",
+	"description": "x402x is an extension of the x402 protocol (V2), that enables Gas-Free and Approval-Free smart contract interactions and DApps for AI agents.",
+	"url": "https://x402x.dev",
+	"github": "https://github.com/nuwa-protocol/x402-exec",
+	"tag": "infra",
+	"order": 1
+}
