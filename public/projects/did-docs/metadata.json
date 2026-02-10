@@ -1,6 +1,6 @@
 {
   "name": "DID Docs",
-  "description": "Integration guides for DIDAuth flows, including remote agent auth and backend verification.",
+  "description": "Integration guides for DIDAuth flows, including agent auth and backend verification.",
   "url": "https://docs.nuwa.dev/guides/did-auth",
   "tag": "infra",
   "order": 4
