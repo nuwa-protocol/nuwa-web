@@ -1,0 +1,7 @@
+{
+  "name": "Nuwa ID",
+  "description": "Passkey-based DID onboarding and key management for users and developers.",
+  "url": "https://id.nuwa.dev",
+  "tag": "infra",
+  "order": 3
+}
